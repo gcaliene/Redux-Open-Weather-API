@@ -1,9 +1,10 @@
 const API_KEY = 'e913e57d83ec09c683c6f4d78b08a730';
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?APPID=${API_KEY}&q=london,us`;
+const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?APPID=${API_KEY}&q=`;
 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
-export function fetchWeather() {
+export function fetchWeather(city) {
+  const url = `${ROOT_URL}${city},us`;
   return {
     type: FETCH_WEATHER
   };
