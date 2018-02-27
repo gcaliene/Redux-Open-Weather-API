@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -17,6 +20,7 @@ export default class SearchBar extends Component {
   //Form tag offers functionality so use it and just remember to prevent default
   onFormSubmit(event) {
     event.preventDefault();
+    //we need to fetch the weather data
   }
 
   render() {
