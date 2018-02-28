@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = { term: '' };
     this.onInputChange = this.onInputChange.bind(this);
-    // this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
   // All DOM event handlers like onclick, onchange, onhover, onscroll have an event object
   onInputChange(event) {
@@ -21,6 +21,8 @@ export default class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
     //we need to fetch the weather data
+    this.props.fetchWeather(this.state.term);
+    this.setState({ term: '' });
   }
 
   render() {
@@ -42,3 +44,9 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch); //makes sure this flows down to the middlewares
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
