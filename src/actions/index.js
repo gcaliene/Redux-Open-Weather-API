@@ -8,6 +8,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export function fetchWeather(city) {
   const url = `${ROOT_URL}${city},us`;
   const request = axios.get(url); //behaves just like the jquery ajax call
+  console.log(`Request is ${request}`);
 
   return {
     type: FETCH_WEATHER,
