@@ -8,6 +8,7 @@ import App from './components/app';
 import reducers from './reducers';
 
 //applyMiddleware from redux is where you add the middleware
+//Redux promise is there to clean up the code and make syncronous looking code asynchronous
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(

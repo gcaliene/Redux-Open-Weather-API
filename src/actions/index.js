@@ -9,7 +9,7 @@ export function fetchWeather(city) {
   const url = `${ROOT_URL}${city},us`;
   const request = axios.get(url); //behaves just like the jquery ajax call
   console.log(`Request is ${request}`);
-
+  //payload (request) is a promise. and redux promise middleware just
   return {
     type: FETCH_WEATHER,
     payload: request
