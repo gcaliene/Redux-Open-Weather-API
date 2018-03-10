@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class WeatherList extends Component {
+class WeatherList extends Component {
   render() {
-    <table className="table table-hover">
-      <thead>
-        <tr>
-          <th>City</th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>;
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Temperature</th>
+            <th>Pressure</th>
+            <th>Humidity</th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    );
   }
 }
+
+// function mapStateToProps(state) {
+//   return { weather: state.weather };
+// } refactored in the next line
+
+function mapStateToProps({ weather }) {
+  return { weather };
+}
+
+export default connect(mapStateToProps)(WeatherList);
