@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 class GoogleMap extends Component {
+  //lifecycle method that gets called automatically after being rendered
   componentDidMount() {
+    //https://developers.google.com/maps/documentation/javascript/reference/3/ reference to google.maps.Map
     new google.maps.Map(this.refs.map, {
       zoom: 12,
       center: {
